@@ -72,3 +72,24 @@ div.reverse-row {
     background-color: blue;
 }
 
+.col-4
+{   
+    border: lawngreen double 5px;
+    background-color: pink;
+    width: 33%;
+    height: inherit;
+}
+
+.col-3
+{
+    background-color: pink;
+    width: 25%;
+    height: inherit;
+}
+
+.col-3:hover
+{
+    background-color: lightcoral;
+    width: 33%;
+    height: inherit;
+}
