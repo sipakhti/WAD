@@ -38,7 +38,8 @@ div.reverse-row {
 }
 
 .donought-md {
-    border-color: black;
+    border-color: pink;
+    border-style: solid;
     border-width: 50px;
     border-radius: 50%;
     width: 20vw;
@@ -46,6 +47,7 @@ div.reverse-row {
 }
 
 .donought-lg {
+    border: solid black 75px;
     border-width: 50px;
     border-radius: 50%;
     width: 40vw;
