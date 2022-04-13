@@ -1,0 +1,95 @@
+div.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+div.reverse-row {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap-reverse;
+}
+
+.circle-sm {
+    border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+}
+
+.circle-md {
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
+}
+
+.circle-lg {
+    border-radius: 50%;
+    width: 40vw;
+    height: 40vw;
+}
+
+.donought-sm {
+    border-width: 50px;
+    border-radius: 50%;
+    width: 10vw;
+    height: 10vw;
+}
+
+.donought-md {
+    border-color: pink;
+    border-style: solid;
+    border-width: 50px;
+    border-radius: 50%;
+    width: 20vw;
+    height: 20vw;
+}
+
+.donought-lg {
+    border: solid black 75px;
+    border-width: 50px;
+    border-radius: 50%;
+    width: 40vw;
+    height: 40vw;
+}
+
+.night-sky {
+    background-image: url("stary-sky-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+
+.bg-blue {
+    background-color: blue;
+}
+
+.col-4
+{   
+    border: lawngreen double 5px;
+    background-color: pink;
+    width: 33%;
+    height: inherit;
+}
+
+.col-3
+{
+    background-color: pink;
+    width: 25%;
+    height: inherit;
+}
+
+.col-3:hover
+{
+    background-color: lightcoral;
+    width: 33%;
+    height: inherit;
+}
