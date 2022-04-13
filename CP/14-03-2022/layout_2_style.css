@@ -1,0 +1,50 @@
+body {
+    margin: 5px;
+    padding: 8px;
+    border: solid black 1px
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 5px 0px
+}
+
+.header {
+    background-color: pink;
+    min-height: 10vh;
+    width: 100%;
+}
+
+.main-row {
+    flex-wrap: wrap;
+    min-height: 75vh;
+    width: 100% ;
+}
+
+.full-width {
+    background-color: yellow;
+    min-height: 50%;
+    width: 100%;
+}
+
+.guttered {
+    margin: 4px;
+    padding: 0px 20px;
+    justify-content: space-evenly;
+    min-height: 50%;
+    width: 100%;
+}
+
+.col {
+    background-color: blue;
+    min-height: 100%;
+    width: 33%;
+    margin: 0px 5px;
+}
+
+.footer {
+    background-color: aqua;
+    min-height: 10vh;
+    width: 100%;
+}
