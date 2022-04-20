@@ -1,0 +1,68 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    justify-content: flex-end;
+}
+
+header > div.menu-item {
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 70px;
+    width: 10%;
+    background-color: aqua;
+    margin: 0px 5px
+}
+
+header > div.menu-item > a {
+    font-size: 0.8rem;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 5px 0px;
+    text-decoration: none;
+    color: black;
+}
+
+div.main-banner {
+    display: flex;
+    height: 100vh;
+    background-color: burlywood;
+    width: 100%;
+}
+
+div.left-col {
+    border-top-left-radius: 75%;
+    background-color: cadetblue;
+    height: 100%;
+    width: 70%;
+}
+
+div.right-col {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: chartreuse;
+    height: 100%;
+    width: 30%;
+}
+
+div.right-col > div {
+    width: 50%;
+    height: 30%;
+    border-radius: 50%;
+    border: chocolate double 5px;
+    background-image: url("https://lostincincinnati.com/wp-content/uploads/2022/01/Cincinnatis-Top-8-Italian-Restaurants-Feature-scaled.jpg");
+    background-repeat: round;
+    position: relative;
+
+}
+
