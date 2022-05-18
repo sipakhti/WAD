@@ -40,10 +40,12 @@ div.main-banner {
 }
 
 div.left-col {
-    border-top-left-radius: 75%;
-    background-color: cadetblue;
-    height: 100%;
-    width: 70%;
+    box-sizing: border-box;
+    border-left: 500px solid cadetblue;
+    border-top: 200px solid transparent;
+    /* background-color: cadetblue; */
+    /* height: 100%;
+    width: 70%; */
 }
 
 div.right-col {
@@ -66,3 +68,9 @@ div.right-col > div {
 
 }
 
+#triangle-topleft {
+    width: 0;
+    height: 0;
+    border-top: 100px solid red;
+    border-right: 100px solid transparent;
+  }
