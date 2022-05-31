@@ -5,10 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="code.js"></script>
     <title>30-05-2022</title>
 </head>
 <body>
-    
+    <div id="calculator-wrapper">
+       <div id="text-fields">
+           <input type="text" name="input" id="input-field">
+           <textarea name="output" id="output-field" cols="30" rows="1"></textarea>
+       </div>
+       <div id="button-area">
+        <div id="keypad">
+            <div class="row">
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+            </div>
+            <div class="row">
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                </div>
+            <div class="row">
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+            </div>
+            <div class="row">
+                <button>0</button>
+                <button id="clear-btn">C</button>
+                <button id="calculate-btn">=</button>
+            </div>
+        </div>
+        <div id="operator-pad">
+            <button id="divide">/</button>
+            <button id="multiply">*</button>
+            <button id="subtract">-</button>
+            <button id="add">+</button>
+        </div>
+       </div>
+    </div>
 </body>
+<script src="code.js"></script>
+
 </html>

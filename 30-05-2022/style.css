@@ -1,0 +1,91 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+#calculator-wrapper {
+    margin: auto;
+    max-width: 300px;
+    min-width: 250px;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+#text-fields {
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+#text-fields * {
+    min-width: inherit; 
+    max-width: max-content;
+    max-height: 20px;
+    min-height: 20px;
+    height: 20px;
+    margin: 5px;
+}
+
+#button-area {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+#keypad {
+    background-color: #79cdd3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#keypad > .row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#keypad button {
+    width: 60px;
+    background-color: inherit;
+    padding: 20px;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+}
+
+#keypad button:hover {
+    background-color: #e5e5e5;
+}
+
+#operator-pad {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#operator-pad button {
+    width: 60px;
+    padding: 20px;
+    border: none;
+    background-color: #5a2121;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+}

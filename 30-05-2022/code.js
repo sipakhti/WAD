@@ -1,130 +1,165 @@
 
-function grader(marks) {
-    if (marks < 50)
-        console.log("GRADE: F");
-    else if (marks >= 50 && marks < 60)
-        console.log("GRADE: D");
-    else if (marks >= 60 && marks < 70)
-        console.log("GRADE: C");
-    else if (marks >= 70 && marks < 80)
-        console.log("GRADE: B");
-    else if (marks >= 80 && marks < 95)
-        console.log("GRADE: A");
-    else if (marks >= 95 && marks < 100)
-        console.log("GRADE: A+");
-    else
-        console.error(`MARKS OUT OF BOUNDS (marks: ${marks})`);
-}
-
-// let marks = prompt("ENTER YOUR MARKS")
-// marks = parseInt(marks)
-// if (marks != NaN)
-//     grader(marks)
-// else
-//     alert(`INCORRECT MARKS (marks: ${marks})`)
-
-
-SYMBOLS =  {
-    addition: '+',
-    subtraction: '-',
-    division: '/',
-    multiplication: '*'
-}
-
 class ArthOps {
     static expression = '';
+
+    static isOperator(character){
+        return character === '+' || character === '-' || character === '/' || character === '*' || character === '%'
+    }
 
     static parseExpression(expr = ''){
         this.expression = expr;
         this.divide();
         this.multiply();
+        this.mod();
         this.add();
         this.subtract();
         return this.expression;
     }
 
     static extractPreSymNum(i){
+        let answerInt, answerFloat;
         for (let index = i-1; index >= 0; index--)
         {
             if (index === 0)
-                return parseInt(this.expression.substring(0,i))
-            if (this.expression[index] in ['+','-','/','*'].values())
-                return parseInt(this.expression.substring(index+1,i))
+            {
+                answerInt = parseInt(this.expression.substring(0,i))
+                answerFloat = parseFloat(this.expression.substring(0,i))
+
+                return answerFloat === answerInt ? answerInt : answerFloat
+            }
+            if (this.isOperator(this.expression[index])) {
+                answerInt = parseInt(this.expression.substring(index+1,i+1))
+                answerFloat = parseFloat(this.expression.substring(index+1,i+1))
+
+                return answerFloat === answerInt ? answerInt : answerFloat
+            }
         }
     }
 
     static extractPostSymNum(i){
-        for (let index = i; index < this.expression.length; index++) {
-            if (this.expression[index] in ['+','-','/','*'].values())
-                return parseInt(this.expression.substring(i+1,index))
+        let answerInt, answerFloat;
+        let index = i+1;
+        for (; index < this.expression.length; index++) {
+            if (this.isOperator(this.expression[index])){
+                answerInt = parseInt(this.expression.substring(i+1,index))
+                answerFloat = parseFloat(this.expression.substring(i+1,index))
+
+                return answerFloat === answerInt ? answerInt : answerFloat
+            }
             
         }
-        return parseInt(this.expression.substring(i+1))
+        answerInt = parseInt(this.expression.substring(i+1,index))
+        answerFloat = parseFloat(this.expression.substring(i+1,index))
+        return answerFloat === answerInt ? answerInt : answerFloat
     }
 
     static add() {
+        let preSymNum, postSymNum;
         for (let index = 0; index < this.expression.length; index++) {
-            let preSymNum, postSymNum;
-            if (this.expression[index] === '+')
+            if (this.expression[index] === '+' && index != 0)
                 {
                     preSymNum = this.extractPreSymNum(index)
                     postSymNum = this.extractPostSymNum(index)
-                    console.log("PRESUM: " + preSymNum);
                     let sum =  preSymNum + postSymNum
                     let sub = preSymNum + '+' + postSymNum
                     this.expression = this.expression.replace(sub, sum.toString())
-                    index = 0;
+                    index = index - sub.length - sum.toString().length
                 }       
         }
     }
 
     static subtract(){
+        let preSymNum, postSymNum;
         for (let index = 0; index < this.expression.length; index++) {
-            let preSymNum, postSymNum;
-            if (this.expression[index] === '-')
+            if (this.expression[index] === '-' && index != 0)
                 {
                     preSymNum = this.extractPreSymNum(index)
                     postSymNum = this.extractPostSymNum(index)
-                    console.log("PRESUM: " + preSymNum);
-                    let sum =  preSymNum - postSymNum
+                    let difference =  preSymNum - postSymNum
                     let sub = preSymNum + '-' + postSymNum
-                    this.expression = this.expression.replace(sub, sum.toString())
-                    index = 0;
+                    this.expression = this.expression.replace(sub, difference.toString())
+                    index = index - sub.length - difference.toString().length
                 }       
         }
     }
 
     static divide(){
+        let preSymNum, postSymNum;
         for (let index = 0; index < this.expression.length; index++) {
-            let preSymNum, postSymNum;
-            if (this.expression[index] === '/')
+            if (this.expression[index] === '/' && index != 0)
                 {
                     preSymNum = this.extractPreSymNum(index)
                     postSymNum = this.extractPostSymNum(index)
-                    console.log("PRESUM: " + preSymNum);
-                    let sum =  preSymNum / postSymNum
+                    let qoutient =  preSymNum / postSymNum
                     let sub = preSymNum + '/' + postSymNum
-                    this.expression = this.expression.replace(sub, sum.toString())
-                    index = 0;
+                    this.expression = this.expression.replace(sub, qoutient.toString())
+                    index = index - sub.length - qoutient.toString().length
+                }       
+        }
+    }
+    // 01234
+    // 1+1*5
+    // 1+5
+
+    static multiply(){
+        let preSymNum, postSymNum;
+        for (let index = 0; index < this.expression.length; index++) {
+            if (this.expression[index] === '*' && index != 0)
+                {
+                    preSymNum = this.extractPreSymNum(index)
+                    postSymNum = this.extractPostSymNum(index)
+                    let product =  preSymNum * postSymNum
+                    let sub = preSymNum + '*' + postSymNum
+                    this.expression = this.expression.replace(sub, product.toString())
+                    index = index - sub.length - product.toString().length
                 }       
         }
     }
 
-    static multiply(){
+    static mod(){
+        let preSymNum, postSymNum;
         for (let index = 0; index < this.expression.length; index++) {
-            let preSymNum, postSymNum;
-            if (this.expression[index] === '*')
+            if (this.expression[index] === '%' && index != 0)
                 {
                     preSymNum = this.extractPreSymNum(index)
                     postSymNum = this.extractPostSymNum(index)
-                    console.log("PRESUM: " + preSymNum);
-                    let sum =  preSymNum * postSymNum
-                    let sub = preSymNum + '*' + postSymNum
-                    this.expression = this.expression.replace(sub, sum.toString())
-                    index = 0;
+                    let remainder =  preSymNum % postSymNum
+                    let sub = preSymNum + '%' + postSymNum
+                    this.expression = this.expression.replace(sub, remainder.toString())
+                    index = index - sub.length - remainder.toString().length
                 }       
         }
     }
 }
 
-console.log(ArthOps.parseExpression("25+25+25+255/5*5"));
+console.log(ArthOps.parseExpression("25+25+25+255/5*5*5*452/411+4646-54532424"));
+
+
+
+    let inputField = document.getElementById('input-field')
+    let outputField = document.getElementById('output-field')
+    let clearBtn = document.getElementById("clear-btn")
+    let calculateBtn = document.getElementById('calculate-btn')
+
+    clearBtn.addEventListener('click', ()=> inputField.value = '')
+    calculateBtn.addEventListener('click', ()=> outputField.value = ArthOps.parseExpression(inputField.value))
+
+
+    // find the numeric buttons
+    let numericBtns = document.querySelectorAll("#button-area button")
+    for (const button of numericBtns) {
+        if (button.textContent === 'C' || button.textContent === '=')
+            continue
+        button.addEventListener('click', () => {
+            inputField.value += button.textContent
+        })
+    }
+
+    document.addEventListener('keydown', event => {
+        if (event.key === "Enter")
+            outputField.value = ArthOps.parseExpression(inputField.value)
+    })
+
+
+
+
