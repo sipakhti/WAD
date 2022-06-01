@@ -1,0 +1,104 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+    padding: 0px;
+}
+
+section {
+    width: 99vw;
+    height: 100vh;
+}
+
+section#banner {
+    background-image: url('https://tcrbroker.com/wp-content/uploads/2019/12/emaar-vida-residences.jpg');
+    background-position: top;
+    background-size: cover;
+    position: relative;
+}
+
+div#search-area {
+    position: absolute;
+    left: 5%;
+    bottom: 0px;
+    width: 90%;
+    height: 30%;
+    background-color: #00000099;
+    animation: show-search-area
+ 2s linear 1 ;
+}
+div#search-area-hidden {
+    position: absolute;
+    left: 5%;
+    bottom: 0px;
+    width: 90%;
+    height: 0%;
+    background-color: #00000099;
+    animation: hide-search-area 2s linear 1 ;
+}
+
+div#search-hide-show {
+    position: absolute;
+    bottom: 30%;
+    left: 5%;
+    width: 15%;
+    height: 5%;
+    background-color: green;
+    animation: raise-btn 2s linear 1
+}
+
+div#search-hide-show {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    font-size: x-large;
+    color: whitesmoke;
+}
+
+div#search-hide-show > p {
+    margin: auto;
+}
+div#search-hide-show > button {
+    background-color: green;
+    border: none;
+    transform: rotateX(180deg);
+}
+
+@keyframes lower-btn {
+    0% {
+        bottom: 30%;
+    }
+    100% {
+        bottom: 0px;
+    }
+}
+@keyframes raise-btn {
+    0% {
+        bottom: 0%;
+    }
+    100% {
+        bottom: 30%;
+    }
+}
+
+
+
+@keyframes show-search-area {
+    100% {
+        height: 30%;
+    }
+    0% {
+        height: 0%;
+    }
+}
+@keyframes hide-search-area {
+    0% {
+        height: 30%;
+    }
+    100% {
+        height: 0%;
+    }
+}
