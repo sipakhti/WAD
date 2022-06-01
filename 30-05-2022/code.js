@@ -5,6 +5,7 @@ class ArthOps {
         return character === '+' || character === '-' || character === '/' || character === '*' || character === '%'
     }
 
+    
     static parseExpression(expr = '') {
         this.expression = expr;
         this.divide();
@@ -15,9 +16,18 @@ class ArthOps {
         return this.expression;
     }
 
+    /**
+     * 
+     * @param {number} i 
+     * takes the index number as an argument and scan backwards in the static string member expression and extracts the number
+     * in case it finds a part that is not a number, then it will replace that part with 0 in the static member
+     * @returns the number that is extracted
+     */
     static extractPreSymNum(i) {
         let answerInt, answerFloat;
+        // reverse loop
         for (let index = i - 1; index >= 0; index--) {
+            // if start of the string is reached
             if (index === 0) {
                 answerInt = parseInt(this.expression.substring(0, i))
                 answerFloat = parseFloat(this.expression.substring(0, i))
